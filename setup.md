@@ -44,12 +44,11 @@ gcloud services enable \
   --project={{PROJECT_ID}}
 ```
 
-<div class="tip-box success">
-  <span class="icon">✅</span>
-  <div>
-    <strong>Checkpoint:</strong> Run <code>gcloud services list --enabled --project={{PROJECT_ID}}</code> to verify all APIs are enabled.
-  </div>
-</div>
+> ✅ **Checkpoint:** Run 
+> ```bash {codejar-readonly}
+gcloud services list --enabled --project={{PROJECT_ID}}
+```
+> to verify all APIs are enabled.
 
 ## Create a service account
 

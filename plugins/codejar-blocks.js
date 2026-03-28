@@ -68,7 +68,7 @@
       const langLabel = document.createElement('span');
       langLabel.className = 'codejar-lang';
       langLabel.textContent = lang;
-      if (!isReadonly) {
+      if (false && !isReadonly) { // remove editable badge
         const badge = document.createElement('span');
         badge.className = 'editable-badge';
         badge.textContent = 'EDITABLE';
