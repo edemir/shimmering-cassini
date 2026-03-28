@@ -1,0 +1,5 @@
+- [🏠 Overview](/)
+- [⚡ Step 1: Environment Setup](setup.md)
+- [<span class="sidebar-track-dot" style="background:var(--track-1)"></span> 🪣 Step 2: Cloud Storage](storage.md)
+- [<span class="sidebar-track-dot" style="background:var(--track-2)"></span> 🚀 Step 3: Deploy to Cloud Run](deploy.md)
+- [🧹 Step 4: Cleanup](cleanup.md)

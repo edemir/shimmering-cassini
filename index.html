@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GCP Hackathon Codelab</title>
+  <meta name="description"
+    content="Interactive GCP Hackathon Codelab with live variable substitution and editable code blocks">
+
+  <!-- Docsify Theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+
+  <!-- Prism.js for syntax highlighting -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles/custom.css">
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script>
+    window.$docsify = {
+      name: '🚀 GCP Hackathon',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      search: {
+        placeholder: 'Search codelab...',
+        noData: 'No results found',
+        depth: 3,
+      },
+      themeable: {
+        readyTransition: true,
+      },
+      markdown: {
+        renderer: {
+          code: function (code, lang) {
+            if (lang === 'mermaid') {
+              return '<div class="mermaid">' + code + '</div>';
+            }
+            return this.origin.code.apply(this, arguments);
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Mermaid.js -->
+  <script src="//cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: false, theme: 'default' });
+    // Docsify plugin to render mermaid diagrams after each page load
+    window.$docsify.plugins = (window.$docsify.plugins || []).concat(function (hook) {
+      hook.doneEach(function () {
+        mermaid.run({ querySelector: '.mermaid' });
+      });
+    });
+  </script>
+
+  <!-- Docsify -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+
+  <!-- Prism.js languages -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-docker.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+
+  <!-- CodeJar -->
+  <script src="//cdn.jsdelivr.net/npm/codejar@4/dist/codejar.min.js"></script>
+
+  <!-- Custom Plugins (order matters: sidebar → substitution → collapsible → codejar) -->
+  <script src="plugins/variable-sidebar.js"></script>
+  <script src="plugins/variable-substitution.js"></script>
+  <script src="plugins/collapsible-sections.js"></script>
+  <script src="plugins/codejar-blocks.js"></script>
+</body>
+
+</html>
