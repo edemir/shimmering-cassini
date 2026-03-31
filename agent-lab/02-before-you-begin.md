@@ -1,7 +1,16 @@
 # 🛠️ 02 - Before you begin
 
 
+1. Open an **incognito window** and log into the [Google Cloud Console](https://console.cloud.google.com) using your lab credentials.
+2. Select the lab project from the project picker.
 
+
+<div class="tip-box info">
+  <span class="icon">💡</span>
+  <div>
+    Always use an <strong>incognito window</strong> to avoid conflicts with your personal Google account.
+  </div>
+</div>
 
 ## Start Cloud Shell
 
