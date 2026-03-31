@@ -2,20 +2,6 @@
 
 
 
-In this step, you'll set up your lab environment — authenticate with Google Cloud, configure your project, and enable the required APIs.
-
-## Start the Lab
-
-1. Your **table lead** starts the lab and shares the credentials and project ID with all participants.
-2. Open an **incognito window** and log into the [Google Cloud Console](https://console.cloud.google.com) using your lab credentials.
-3. Select the lab project from the project picker.
-
-<div class="tip-box info">
-  <span class="icon">💡</span>
-  <div>
-    Always use an <strong>incognito window</strong> to avoid conflicts with your personal Google account.
-  </div>
-</div>
 
 ## Start Cloud Shell
 

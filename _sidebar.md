@@ -1,6 +1,6 @@
 
 - **🤖 Agent Lab**
-  - [01 Introduction](agent-lab/01-introduction.md)
+  - [01 Start Here](agent-lab/01-introduction.md)
   - [02 Before you begin](agent-lab/02-before-you-begin.md)
   - [03 Create First Agent](agent-lab/03-create-first-agent.md)
   - [04 Deploy to VertexAI Engine](agent-lab/04-deploy-to-vertexai-engine.md)

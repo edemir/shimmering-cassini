@@ -1,14 +1,34 @@
-# 🚀 01 - Introduction
+# 🚀 01 - Start Here
+
+## Start the Lab Environment
+This step is **for the table lead only**.
+
+## Table Lead: In this step, you'll set up your lab environment.
+
+1. Your **table lead** starts the lab and shares the credentials and project ID with all participants.
+2. Open an **incognito window** and log into the [Google Cloud Console](https://console.cloud.google.com) using your lab credentials.
+3. Select the lab project from the project picker.
+
+<div class="tip-box info">
+  <span class="icon">💡</span>
+  <div>
+    Always use an <strong>incognito window</strong> to avoid conflicts with your personal Google account.
+  </div>
+</div>
 
 ## Task Dependencies
 
-Here is a graph showing the dependencies between the lab steps. Start working on **Create First Agent**, **Create Gemini Enterprise**, **Create Data Agent**, and **Create MCP Server** in parallel.
+Here is a graph showing the dependencies between the lab steps. 
+
+Each member of the team should complete **Before you begin** individually.
+
+Have the team members working on **Create First Agent**, **Create Gemini Enterprise**, **Create Data Agent**, and **Create MCP Server** in parallel.
 
 ```mermaid
 flowchart LR
     classDef default font-size:32px,padding:10px
 
-    SPLIT{{"🔀 SPLIT — work in parallel"}}
+    SPLIT{{"🔀  Complete Setup - Work in Parallel"}}
     
     SPLIT --> B["🤖 03 Create First Agent"]
     B --> C["🚀 04 Deploy to VertexAI Engine"]

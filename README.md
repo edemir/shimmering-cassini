@@ -20,4 +20,4 @@ Welcome to the **TR Agent Lab**! In this hands-on lab, you'll learn how to build
 - Basic familiarity with Python and the terminal
 - Access to Cloud Shell
 
-**Next:** [01 - Introduction →](agent-lab/01-introduction.md)
+**Next:** [01 - Start Here →](agent-lab/01-introduction.md)
