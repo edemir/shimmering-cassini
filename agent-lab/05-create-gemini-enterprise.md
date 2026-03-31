@@ -30,4 +30,4 @@ In the **Gemini Enterprise homepage**, find your instance URL and **share it wit
 
 ---
 
-**Next:** [05.2 - Connect Agent to Gemini Enterprise →](agent-lab/05.2-connect-agent-to-gemini-enterprise.md)
+**Next:** [06 - Connect Agent to Gemini Enterprise →](agent-lab/06-connect-agent-to-gemini-enterprise.md)

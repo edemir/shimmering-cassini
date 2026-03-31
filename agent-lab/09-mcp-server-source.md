@@ -1,4 +1,4 @@
-# 📦 08 - MCP Server Source (server.py)
+# 📦 09 - MCP Server Source (server.py)
 
 This is the source code for your MCP server. Copy this into `~/mcp-on-cloudrun/server.py`.
 
@@ -79,4 +79,4 @@ if __name__ == "__main__":
 
 ---
 
-**Next:** [08 - Dockerfile →](agent-lab/dockerfile.md)
+**Next:** [09 - Dockerfile →](agent-lab/09-dockerfile.md)

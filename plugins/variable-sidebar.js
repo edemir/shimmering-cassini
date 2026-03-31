@@ -13,30 +13,25 @@
   const EDITABLE_VARS = [
     { key: 'PROJECT_ID', label: 'Project ID', type: 'text', placeholder: 'my-gcp-project' },
     { key: 'PROJECT_NUMBER', label: 'Project Number', type: 'text', placeholder: '123456789012' },
-    { key: 'REGION', label: 'Region', type: 'select', options: [
+    {
+      key: 'REGION', label: 'Region', type: 'select', options: [
         'us-central1', 'us-east1', 'us-west1',
         'europe-west1', 'europe-west4',
         'asia-east1', 'asia-northeast1',
         'australia-southeast1'
       ]
     },
-    { key: 'EMAIL', label: 'Email Address', type: 'text', placeholder: 'user@example.com' },
+    { key: 'USER_NAME', label: 'User Name', type: 'text', placeholder: 'student-01-e3070b44be2c@qwiklabs.net' },
+    { key: 'AGENT_RESOURCE_ID', label: 'Agent Resource Id', type: 'text', placeholder: 'projects/000000/locations/europe-west1/reasoningEngines/000000' },
   ];
 
   const COMPUTED_VARS = [
-    { key: 'USERNAME', label: 'Username', derive: (vars) => {
-      const email = vars.EMAIL || '';
-      return email.includes('@') ? email.split('@')[0] : email;
-    }},
-    { key: 'BUCKET_NAME', label: 'Bucket Name', derive: (vars) => {
-      return vars.PROJECT_ID ? `${vars.PROJECT_ID}-bucket` : '';
-    }},
-    { key: 'SERVICE_ACCOUNT', label: 'Service Account', derive: (vars) => {
-      return vars.PROJECT_ID ? `${vars.PROJECT_ID}@${vars.PROJECT_ID}.iam.gserviceaccount.com` : '';
-    }},
-    { key: 'DATASET_ID', label: 'BigQuery Dataset', derive: (vars) => {
-      return vars.PROJECT_ID ? `${vars.PROJECT_ID}.hackathon_dataset` : '';
-    }},
+    {
+      key: 'USER_NAME_SHORT', label: 'Username (short)', derive: (vars) => {
+        const name = vars.USER_NAME || '';
+        return name.includes('@') ? name.split('@')[0] : name;
+      }
+    }
   ];
 
   const STORAGE_KEY = 'docsify_codelab_vars';
@@ -85,7 +80,7 @@
     const header = document.createElement('div');
     header.id = 'var-panel-header';
     header.innerHTML = `<h3>Lab Variables</h3>`;
-    
+
     const resetBtn = document.createElement('button');
     resetBtn.textContent = 'Reset';
     resetBtn.className = 'var-reset-btn';

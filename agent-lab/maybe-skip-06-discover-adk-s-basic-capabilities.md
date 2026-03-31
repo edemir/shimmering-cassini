@@ -29,4 +29,4 @@ uv run adk web --port 8080 --reload_agents --allow_origins 'regex:https://.*\.cl
 
 ---
 
-**Next:** [07.1 - Create a Data Agent →](agent-lab/07.1-create-a-data-agent.md)
+**Next:** [07 - Create a Data Agent →](agent-lab/07-create-a-data-agent.md)

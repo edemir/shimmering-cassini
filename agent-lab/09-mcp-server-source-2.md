@@ -1,4 +1,4 @@
-# 📦 08 - MCP Server Source v2 (server.py)
+# 📦 09 - MCP Server Source v2 (server.py)
 
 This is an alternative version of the MCP server with a richer product dataset and an additional `get_product_inventory` tool.
 
@@ -96,4 +96,4 @@ if __name__ == "__main__":
 
 ---
 
-**Back to:** [08 - Create MCP Server](agent-lab/08-create-an-mcp-server.md)
+**Back to:** [09 - Create MCP Server](agent-lab/09-create-an-mcp-server.md)

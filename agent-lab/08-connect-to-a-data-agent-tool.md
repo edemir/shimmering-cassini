@@ -1,4 +1,4 @@
-# 🔌 07.2 - Connect to a Data Agent Tool
+# 🔌 08 - Connect to a Data Agent Tool
 
 <div class="duration">⏱ ~15 minutes</div>
 
@@ -6,24 +6,23 @@ In this step, you'll connect the Data Agent to your custom agent as a tool and g
 
 ## Connect the Data Agent
 
-Use the attached code to connect the data agent to your custom agent as a tool.
+Use the attached code in [08 - Solution](agent-lab/08-solution.md) to connect the data agent to your custom agent as a tool.
 
-Run your agent in Cloud Shell:
+Run your agent in Cloud Shell if it's not running:
 
 ```bash {codejar}
+cd ~/agent_hton
 uv run adk web --port 8080 --reload_agents --allow_origins 'regex:https://.*\.cloudshell\.dev'
 ```
 
-## Grant IAM roles
+Test your agent locally in the web dev UI interface.
+
+## Deploy Data Agent
+
+### Grant IAM roles
 
 We'll use the Agent Engine's service account to provide access to the dataset. Add the following roles to Agent Engine's IAM account:
 
-- Cloud Run Invoker
-- Gemini Data Analytics Data Agent User (Beta)
-- Gemini Data Analytics Data Agent Viewer (Beta)
-- Gemini Data Analytics Stateless Chat User (Beta)
-- Vertex AI Reasoning Engine Service Agent
-- BigQuery Job User
 
 <div class="tip-box info">
   <span class="icon">💡</span>
@@ -34,9 +33,12 @@ We'll use the Agent Engine's service account to provide access to the dataset. A
 
 Copy the service account ID from the Agent Engine console and set it below:
 
+Todo(demir): Minimize the number of roles.
+
 ```bash {codejar}
 PROJECT_ID=$(gcloud config get-value project)
-SA="serviceAccount:service-XXXXXXXXXXXXX@gcp-sa-aiplatform-re.iam.gserviceaccount.com"
+PROJECT_NUMBER=$(gcloud projects describe "$PROJECT_ID" --format="value(projectNumber)")
+SA="serviceAccount:service-${PROJECT_NUMBER}@gcp-sa-aiplatform-re.iam.gserviceaccount.com"
 
 gcloud projects add-iam-policy-binding "$PROJECT_ID" \
   --member="$SA" \
@@ -63,11 +65,7 @@ gcloud projects add-iam-policy-binding "$PROJECT_ID" \
   --role="roles/bigquery.jobUser"
 ```
 
-## Share the Data Agent
-
-Share **"The Look Ecommerce (Copy)"** under the [BigQuery Agent Hub](https://console.cloud.google.com/bigquery/agents_hub;agentsHubTab=Agents) with the service account.
-
-## Redeploy
+### Redeploy
 
 Re-deploy your agent to the Agent Engine. Go into the `agent_hton` folder in Cloud Shell:
 
@@ -83,7 +81,7 @@ uv run adk deploy agent_engine \
     --otel_to_cloud \
     --trace_to_cloud \
     --agent_engine_id \
-    projects/000000/locations/europe-west1/reasoningEngines/000000
+    {{AGENT_RESOURCE_ID}}
 ```
 
 <div class="tip-box info">
@@ -97,4 +95,4 @@ uv run adk deploy agent_engine \
 
 ---
 
-**Next:** [07 - Solution →](agent-lab/07-solution.md)
+**Next:** [09 - Create an MCP Server →](agent-lab/09-create-an-mcp-server.md)

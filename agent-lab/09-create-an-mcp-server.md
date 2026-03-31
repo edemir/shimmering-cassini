@@ -1,4 +1,4 @@
-# 🔧 08 - Create an MCP Server
+# 🔧 09 - Create an MCP Server
 
 <div class="duration">⏱ ~15 minutes</div>
 
@@ -15,7 +15,7 @@ uv init --description "Example of deploying an MCP server on Cloud Run"
 
 ## Add the source code
 
-Copy the source code into `server.py` (see the [MCP Server Source](agent-lab/mcp-server-source.md) page):
+Copy the source code into `server.py` (see the [MCP Server Source](agent-lab/09-mcp-server-source.md) page):
 
 ```bash {codejar}
 cloudshell edit ~/mcp-on-cloudrun/server.py
@@ -27,7 +27,7 @@ Install the FastMCP dependency:
 uv add fastmcp
 ```
 
-Copy the Dockerfile (see the [Dockerfile](agent-lab/dockerfile.md) page):
+Copy the Dockerfile (see the [Dockerfile](agent-lab/09-dockerfile.md) page):
 
 ```bash {codejar}
 cloudshell edit ~/mcp-on-cloudrun/Dockerfile
@@ -48,7 +48,7 @@ Deploy to Cloud Run:
 cd ~/mcp-on-cloudrun
 
 gcloud run deploy hton-mcp-server \
-    --service-account=mcp-server-sa@qwiklabs-gcp-XX-XXXXXXXXXXXX.iam.gserviceaccount.com \
+    --service-account=mcp-server-sa@{{PROJECT_ID}}.iam.gserviceaccount.com \
     --no-allow-unauthenticated \
     --region=europe-west1 \
     --source=.
@@ -59,7 +59,7 @@ gcloud run deploy hton-mcp-server \
 Give your user account permission to call the remote MCP server:
 
 ```bash {codejar}
-gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT \
+gcloud projects add-iam-policy-binding {{PROJECT_ID}} \
     --member=user:$(gcloud config get-value account) \
     --role='roles/run.invoker'
 ```
@@ -69,7 +69,7 @@ gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT \
 Generate an ID token for testing:
 
 ```bash {codejar}
-export PROJECT_NUMBER=$(gcloud projects describe $GOOGLE_CLOUD_PROJECT --format="value(projectNumber)")
+export PROJECT_NUMBER=$(gcloud projects describe {{PROJECT_ID}} --format="value(projectNumber)")
 export ID_TOKEN=$(gcloud auth print-identity-token)
 ```
 
@@ -81,11 +81,11 @@ gemini mcp add \
     --transport http \
     --header 'Authorization: Bearer $ID_TOKEN' \
     hton-mcp-server \
-    https://hton-mcp-server-XXXXXXXXXXXXXX.europe-west1.run.app/mcp
+    https://hton-mcp-server-${PROJECT_NUMBER}.europe-west1.run.app/mcp
 ```
 
-> ✅ **Checkpoint:** Start Gemini and ask it to show the product inventory.
+> ✅ **Checkpoint:** Start Gemini CLI in cloud shell with the `gemini` commandand ask it to show the product inventory.
 
 ---
 
-**Next:** [08 - MCP Server Source →](agent-lab/mcp-server-source.md)
+**Next:** [09 - MCP Server Source →](agent-lab/09-mcp-server-source.md)

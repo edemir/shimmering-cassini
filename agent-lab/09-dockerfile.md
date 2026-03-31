@@ -1,4 +1,4 @@
-# 🐳 08 - Dockerfile
+# 🐳 09 - Dockerfile
 
 This is the Dockerfile for your MCP server. Copy this into `~/mcp-on-cloudrun/Dockerfile`.
 
@@ -27,4 +27,4 @@ CMD ["uv", "run", "server.py"]
 
 ---
 
-**Next:** [09 - Integrate MCP Server →](agent-lab/09-integrate-mcp-server-with-the-agent.md)
+**Next:** [10 - Integrate MCP Server →](agent-lab/10-integrate-mcp-server-with-the-agent.md)

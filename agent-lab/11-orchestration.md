@@ -1,4 +1,4 @@
-# 🧩 10 - Orchestration
+# 🧩 11 - Orchestration
 
 <div class="duration">⏱ ~10 minutes</div>
 
@@ -8,12 +8,12 @@ You can now use **LLM** or **ADK orchestration** to build complex use cases.
 
 For instance, you may want to ask about **best-selling items that are out of stock** — this requires the agent to coordinate between the Data Agent (BigQuery) and the MCP Server (inventory).
 
+Use the instructions on guiding the agent to use the appropriate tools to answer the question, and orchestrate between them to provide a comprehensive answer.
+
 ## Learn more
 
-Explore the ADK documentation on multi-agent orchestration:
+Explore the ADK documentation on multi-agent orchestration for strict control over the agent's behavior:
 
 🔗 [Hierarchical Task Decomposition](https://google.github.io/adk-docs/agents/multi-agents/#hierarchical-task-decomposition)
 
----
-
-**Next:** [😵‍💫 Troubleshooting →](agent-lab/troubleshooting.md)
+Feel free to experiment with the agent and see what you can build!

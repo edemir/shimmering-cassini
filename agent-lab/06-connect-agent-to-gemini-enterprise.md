@@ -1,4 +1,4 @@
-# 🔗 05.2 - Connect Agent to Gemini Enterprise
+# 🔗 06 - Connect Agent to Gemini Enterprise
 
 <div class="duration">⏱ ~5 minutes</div>
 
@@ -33,4 +33,4 @@ projects/0000000/locations/europe-west1/reasoningEngines/000000
 
 ---
 
-**Next:** [06 - Discover ADK Capabilities →](agent-lab/maybe-skip-06-discover-adk-s-basic-capabilities.md)
+**Next:** [07 - Create a Data Agent →](agent-lab/07-create-a-data-agent.md)

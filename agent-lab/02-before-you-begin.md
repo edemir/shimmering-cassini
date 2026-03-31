@@ -30,12 +30,12 @@ gcloud auth list
 <div class="tip-box info">
   <span class="icon">⚠️</span>
   <div>
-    If you get authentication errors during the lab, run the following — replace <code>&lt;account&gt;</code> with your student account email:
+    If you get authentication errors during the lab, set your <strong>User Name</strong> in the sidebar, then run:
   </div>
 </div>
 
 ```bash {codejar}
-gcloud config set account <account>
+gcloud config set account {{USER_NAME}}
 ```
 
 ## Configure your project
@@ -49,13 +49,13 @@ gcloud config list project
 Each lab has a unique **Project ID** — copy it from your lab resources, then set it:
 
 ```bash {codejar}
-export PROJECT_ID=<YOUR_PROJECT_ID>
+export PROJECT_ID={{PROJECT_ID}}
 gcloud config set project $PROJECT_ID
 ```
 
 > ✅ **Checkpoint:** Your Cloud Shell prompt should show something like:
 > ```
-> student_01_f5ce61ad6fac@cloudshell:~ (qwiklabs-gcp-00-1b7b11aedf8e)$
+> {{USER_NAME_SHORT}}@cloudshell:~ ({{PROJECT_ID}})$`
 > ```
 
 ## Enable required APIs

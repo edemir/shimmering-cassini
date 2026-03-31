@@ -543,6 +543,66 @@ body .sidebar-toggle { background: var(--surface) !important; }
   padding-bottom: 0;
 }
 
+/* ---------- Details / Show Solution ---------- */
+.markdown-section details {
+  margin: 1em 0 1.5em;
+  border: 1px dashed rgba(91, 84, 230, 0.25);
+  border-radius: var(--radius);
+  background: rgba(91, 84, 230, 0.02);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+
+.markdown-section details:hover {
+  border-color: rgba(91, 84, 230, 0.45);
+}
+
+.markdown-section details summary {
+  padding: 12px 18px;
+  background: rgba(91, 84, 230, 0.04);
+  color: var(--accent);
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.markdown-section details summary::-webkit-details-marker { display: none; }
+
+.markdown-section details summary::before {
+  content: '▶';
+  font-size: 10px;
+  transition: transform var(--transition);
+}
+
+.markdown-section details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.markdown-section details summary:hover {
+  background: rgba(91, 84, 230, 0.08);
+}
+
+.markdown-section details[open] summary {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.markdown-section details > *:not(summary) {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.markdown-section details > .codejar-wrap {
+  margin: 14px 18px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }

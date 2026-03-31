@@ -43,11 +43,14 @@ uv add google-adk
 
 We'll use `uv run` — feel free to [create a virtual environment](https://docs.astral.sh/uv/pip/environments/) and switch into it to use `adk` directly.
 
-Create the agent's skeleton. Select **other models** (option 2):
+Create the agent's skeleton: 
 
 ```bash {codejar}
+cd ~/agent_hton
 uv run adk create first_agent --region global
 ```
+
+Select **other models** (option 2).  We'll change the model later.
 
 ## Run the agent in a web interface
 
@@ -68,6 +71,21 @@ uv run adk web --port 8080 --reload_agents --allow_origins 'regex:https://.*\.cl
 
 1. **Fix the model ID** — Open `agent.py` and change the model to **Gemini 3 Flash**:
    - 🔗 [Gemini 3 Flash docs](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-flash)
+
+<details>
+<summary>💡 Show solution</summary>
+
+```python {codejar-readonly}
+root_agent = Agent(
+    model='gemini-3-flash-preview',
+    name='root_agent',
+    description='A helpful assistant for user questions.',
+    instruction='Answer user questions to the best of your knowledge',
+)
+```
+
+</details>
+
 
 2. **Enable Vertex AI mode** — Open the `.env` file and add the following:
    - 🔗 [ADK Quickstart — Vertex AI](https://google.github.io/adk-docs/get-started/quickstart/#gemini---google-cloud-vertex-ai)
@@ -103,10 +121,12 @@ root_agent = Agent(
 )
 ```
 
+TODO(demir): Add instructions to add simple tools like get current date and time.
+
 > 🤔 **Do you see any errors in the console?**
 >
 > For model issues, visit: 🔗 [ADK Agent Models](https://google.github.io/adk-docs/agents/models/)
 
 ---
 
-**Next:** [03 - Solution →](agent-lab/03-solution.md)
+**Next:** [04 - Deploy to Vertex AI Engine →](agent-lab/04-deploy-to-vertexai-engine.md)
