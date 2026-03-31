@@ -25,7 +25,7 @@ Welcome to the **TR Agent Lab**! In this hands-on lab, you'll learn how to build
 Here is a graph showing the dependencies between the lab steps. Start working on **Create First Agent**, **Create Gemini Enterprise**, **Create Data Agent**, and **Create MCP Server** in parallel.
 
 ```mermaid
-flowchart TD
+flowchart LR
     %% Define styles for different tracks
     classDef main fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#0d47a1
     classDef enterprise fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,color:#4a148c
