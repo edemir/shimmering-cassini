@@ -2,7 +2,7 @@
 
 <div class="duration">⏱ Full lab: ~120 minutes</div>
 
-Welcome to the **TR Agent Lab**! In this hands-on lab, you'll learn how to build, deploy, and integrate AI agents using the Google Agent Development Kit (ADK).
+Welcome to the **ADK and Vertex AI Agent Engine Agent Lab**! In this hands-on lab, you'll learn how to build, deploy, and integrate AI agents using the Google Agent Development Kit (ADK).
 
 ## What you'll do
 
