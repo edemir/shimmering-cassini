@@ -1,6 +1,6 @@
 # 🔗 10 - Integrate MCP Server with the Agent
 
-<div class="duration">⏱ ~10 minutes</div>
+
 
 In this step, you'll integrate the MCP server you deployed on Cloud Run with your ADK agent.
 

@@ -1,6 +1,6 @@
 # 🛠️ 02 - Before you begin
 
-<div class="duration">⏱ ~10 minutes</div>
+
 
 In this step, you'll set up your lab environment — authenticate with Google Cloud, configure your project, and enable the required APIs.
 

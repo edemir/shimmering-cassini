@@ -1,6 +1,6 @@
 # ☁️ 04 - Deploy to Vertex AI Agent Engine
 
-<div class="duration">⏱ ~10 minutes</div>
+
 
 In this step, you'll prepare and deploy your agent to the **Vertex AI Agent Engine**.
 

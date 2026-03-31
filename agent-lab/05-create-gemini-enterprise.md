@@ -1,6 +1,6 @@
 # 💎 05 - Create Gemini Enterprise
 
-<div class="duration">⏱ ~5 minutes</div>
+
 
 In this step, you'll set up a **Gemini Enterprise** instance and configure it for your project.
 

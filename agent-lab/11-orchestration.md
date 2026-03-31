@@ -1,6 +1,6 @@
 # 🧩 11 - Orchestration
 
-<div class="duration">⏱ ~10 minutes</div>
+
 
 You can now use **LLM** or **ADK orchestration** to build complex use cases.
 

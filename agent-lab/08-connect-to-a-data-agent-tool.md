@@ -1,6 +1,6 @@
 # 🔌 08 - Connect to a Data Agent Tool
 
-<div class="duration">⏱ ~15 minutes</div>
+
 
 In this step, you'll connect the Data Agent to your custom agent as a tool and grant the necessary IAM permissions.
 

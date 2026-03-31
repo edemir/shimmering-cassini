@@ -1,6 +1,6 @@
 # 🔗 06 - Connect Agent to Gemini Enterprise
 
-<div class="duration">⏱ ~5 minutes</div>
+
 
 In this step, you'll connect your deployed agent to your Gemini Enterprise instance.
 

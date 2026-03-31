@@ -1,6 +1,6 @@
 # 🔧 09 - Create an MCP Server
 
-<div class="duration">⏱ ~15 minutes</div>
+
 
 In this step, you'll create, deploy, and connect to a remote **MCP (Model Context Protocol) server** on Cloud Run.
 

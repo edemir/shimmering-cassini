@@ -1,6 +1,6 @@
 # 🔍 06 - Discover ADK's Basic Capabilities
 
-<div class="duration">⏱ ~10 minutes (optional)</div>
+
 
 <div class="tip-box info">
   <span class="icon">⏭️</span>

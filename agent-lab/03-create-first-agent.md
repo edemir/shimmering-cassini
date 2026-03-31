@@ -1,6 +1,6 @@
 # 🤖 03 - Create First Agent
 
-<div class="duration">⏱ ~15 minutes</div>
+
 
 In this step, you'll set up your project structure and create your first AI agent using the Google Agent Development Kit (ADK).
 

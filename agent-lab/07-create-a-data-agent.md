@@ -1,6 +1,6 @@
 # 📊 07 - Create a Data Agent
 
-<div class="duration">⏱ ~10 minutes</div>
+
 
 In this step, you'll create a **Data Agent** in BigQuery's Agent Hub and connect it as a remote tool.
 
