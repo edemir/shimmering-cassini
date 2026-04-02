@@ -108,7 +108,7 @@ uv run adk web --port 8080 --reload_agents --allow_origins 'regex:https://.*\.cl
 1. **Try your agent again** in the web UI.
 2. **Check the traces** — inspect the tracing output.
 
-## Experiment with instructions
+### Experiment with instructions
 
 Try changing the agent's instruction to something fun:
 
@@ -121,7 +121,7 @@ root_agent = Agent(
 )
 ```
 
-## Experiment with tools
+### Experiment with tools
 
 Try asking the current date and time. You'll notice that the agent will not be able to answer the question. This is because we haven't added any tools to the agent yet. Let's add a simple tool to the agent. 
 
@@ -164,16 +164,20 @@ root_agent = Agent(
 
 Now ask questions about the date, and the time, or time remaining until new year.
 
-You can also save state using ```state``` variable. 
+### State
+Now let's add state to our agent, you can save anything you like in the state and use it later. For example, you can save the user's last timezone and use it later.
 
+Check https://adk.dev/callbacks/types-of-callbacks/#after-tool-callback for an example.
 
 <details>
 <summary>💡 Show solution</summary>
 
 ```python {codejar}
 from google.adk.agents.llm_agent import Agent
+from google.adk.tools import ToolContext, FunctionTool
 
-def get_current_time(timezone_name):
+
+def get_current_time(timezone_name: str):
     """Retrieves the current local time for a specified timezone.
 
     Args:
@@ -186,6 +190,17 @@ def get_current_time(timezone_name):
     from zoneinfo import ZoneInfo
     return datetime.datetime.now(ZoneInfo(timezone_name)).strftime("%Y-%m-%d %H:%M:%S")
 
+def simple_after_tool_modifier(
+    tool: BaseTool, args: Dict[str, Any], tool_context: ToolContext, tool_response: Dict
+) -> Optional[Dict]:
+    agent_name = tool_context.agent_name
+    tool_name = tool.name
+    print(f"[Callback] After tool call for tool '{tool_name}' in agent '{agent_name}'")
+    print(f"[Callback] Args used: {args}")
+    print(f"[Callback] Original tool_response: {tool_response}")
+    if tool_name == 'get_current_time':
+        tool_context.state["users_last_timezone"] = args["timezone_name"]
+    
 
 root_agent = Agent(
     model='gemini-3-flash-preview',
@@ -193,8 +208,11 @@ root_agent = Agent(
     description='A helpful assistant for user questions.',
     instruction="""
     Answer user questions to the best of your knowledge and with your available tools.
+
+    When set use the last time zone user used: <LastTimeZone>{{users_last_timezone?}}</LastTimeZone>
     """,
-    tools = [get_current_time]
+    tools = [get_current_time],
+    after_tool_callback=simple_after_tool_modifier
 )
 ```
 
