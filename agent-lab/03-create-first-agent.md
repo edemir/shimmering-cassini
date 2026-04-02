@@ -121,7 +121,84 @@ root_agent = Agent(
 )
 ```
 
-TODO(demir): Add instructions to add simple tools like get current date and time.
+## Experiment with tools
+
+Try asking the current date and time. You'll notice that the agent will not be able to answer the question. This is because we haven't added any tools to the agent yet. Let's add a simple tool to the agent. 
+
+Add a ```tools=[]``` to the agent's initialization and a function that returns the current date and time. 
+
+Add instuctions to your agent to use the tool when needed. 
+
+<details>
+<summary>💡 Show solution</summary>
+
+```python {codejar}
+from google.adk.agents.llm_agent import Agent
+
+def get_current_time(timezone_name):
+    """Retrieves the current local time for a specified timezone.
+
+    Args:
+        timezone_name (str, optional): The IANA timezone database name.
+
+    Returns:
+        str: The current time formatted as 'YYYY-MM-DD HH:MM:SS'.
+    """
+    import datetime
+    from zoneinfo import ZoneInfo
+    return datetime.datetime.now(ZoneInfo(timezone_name)).strftime("%Y-%m-%d %H:%M:%S")
+
+
+root_agent = Agent(
+    model='gemini-3-flash-preview',
+    name='root_agent',
+    description='A helpful assistant for user questions.',
+    instruction="""
+    Answer user questions to the best of your knowledge and with your available tools.
+    """,
+    tools = [get_current_time]
+)
+```
+
+</details>
+
+Now ask questions about the date, and the time, or time remaining until new year.
+
+You can also save state using ```state``` variable. 
+
+
+<details>
+<summary>💡 Show solution</summary>
+
+```python {codejar}
+from google.adk.agents.llm_agent import Agent
+
+def get_current_time(timezone_name):
+    """Retrieves the current local time for a specified timezone.
+
+    Args:
+        timezone_name (str, optional): The IANA timezone database name.
+
+    Returns:
+        str: The current time formatted as 'YYYY-MM-DD HH:MM:SS'.
+    """
+    import datetime
+    from zoneinfo import ZoneInfo
+    return datetime.datetime.now(ZoneInfo(timezone_name)).strftime("%Y-%m-%d %H:%M:%S")
+
+
+root_agent = Agent(
+    model='gemini-3-flash-preview',
+    name='root_agent',
+    description='A helpful assistant for user questions.',
+    instruction="""
+    Answer user questions to the best of your knowledge and with your available tools.
+    """,
+    tools = [get_current_time]
+)
+```
+
+</details>
 
 > 🤔 **Do you see any errors in the console?**
 >
