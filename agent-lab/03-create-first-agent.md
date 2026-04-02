@@ -123,11 +123,13 @@ root_agent = Agent(
 
 ### Experiment with tools
 
-Try asking the current date and time. You'll notice that the agent will not be able to answer the question. This is because we haven't added any tools to the agent yet. Let's add a simple tool to the agent. 
+Try asking the current date and time. You'll notice that the agent will not be able to answer the question correctly. This is because we haven't added any tools to the agent yet. Let's add a simple tool to the agent. 
 
 Add a ```tools=[]``` to the agent's initialization and a function that returns the current date and time. 
 
 Add instuctions to your agent to use the tool when needed. 
+
+Check https://adk.dev/tools/function-tools/ for an example.
 
 <details>
 <summary>💡 Show solution</summary>
@@ -163,6 +165,11 @@ root_agent = Agent(
 </details>
 
 Now ask questions about the date, and the time, or time remaining until new year.
+
+Your agent can make multiple tool calls to answer a question. For example, you can ask the agent to calcute the current time difference.
+
+Sample query:
+> "sidney ile istanbul arasi kac saat?"
 
 ### State
 Now let's add state to our agent, you can save anything you like in the state and use it later. For example, you can save the user's last timezone and use it later.
@@ -217,6 +224,8 @@ root_agent = Agent(
 ```
 
 </details>
+
+
 
 > 🤔 **Do you see any errors in the console?**
 >
