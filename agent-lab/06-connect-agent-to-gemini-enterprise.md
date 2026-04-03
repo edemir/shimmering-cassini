@@ -23,15 +23,10 @@ Add the following details:
 | **Description** | A short description |
 | **Agent ID** | Your agent's resource name |
 
-Your agent ID looks like this:
+Copy your agent `Resource Name` from the Agent Engine console.  It should look like this: 
+`projects/0000000/locations/europe-west1/reasoningEngines/000000`.
 
-```text {codejar-readonly}
-projects/0000000/locations/europe-west1/reasoningEngines/000000
-```
-
-```text {codejar-readonly}
-{{AGENT_RESOURCE_ID}}
-```
+Paste it into the Agent ID field.
 
 > ✅ **Checkpoint:** You should now be able to see the traces on the **Vertex Agent Engine**.
 

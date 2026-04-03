@@ -17,6 +17,11 @@ uv run adk web --port 8080 --reload_agents --allow_origins 'regex:https://.*\.cl
 
 Test your agent locally in the web dev UI interface.
 
+Try asking these questions:
+* What is the total revenue for the last 6 months?
+* Which product category has the highest revenue?
+
+
 ## Deploy Data Agent
 
 ### Grant IAM roles

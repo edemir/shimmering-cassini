@@ -61,8 +61,9 @@ root_agent = Agent(
     model='gemini-3-flash-preview',
     name='root_agent',
     description='A helpful assistant for user questions.',
-    instruction="""You are a helpful assistant that uses Data Agents
-        to answer user questions about their data using the agent named "My The Look Ecommerce".
+    instruction="""You are a helpful assistant that uses Data Agents.
+     * To answer user questions about their data using the agent named "My The Look Ecommerce".
+     * Use the project ID `{{PROJECT_ID}}` for data operations.
     """,
     tools=[da_toolset]
 )
