@@ -180,6 +180,10 @@ Now let's add state to our agent, you can save anything you like in the state an
 
 Check https://adk.dev/callbacks/types-of-callbacks/#after-tool-callback for an example.
 
+Check the "State" section in the agent web UI to see the state saved.
+
+Trying asking for time in different cities, and you will see that the agent will remember the user's last timezone and use it to answer the question.
+
 <details>
 <summary>💡 Show solution</summary>
 
