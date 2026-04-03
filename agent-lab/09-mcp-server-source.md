@@ -9,14 +9,6 @@ This is the source code for your MCP server. Copy this into `~/mcp-on-cloudrun/s
 #     "fastmcp",
 # ]
 # ///
-
-# /// script
-# requires-python = ">=3.13"
-# dependencies = [
-#     "fastmcp",
-# ]
-# ///
-
 import asyncio
 import logging
 import os
