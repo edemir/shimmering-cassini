@@ -66,10 +66,10 @@ gcloud services enable \
 ```
 
 > ✅ **Checkpoint:** Run
-> ```bash {codejar-readonly}
-> gcloud services list --enabled
-> ```
-> to verify all four APIs are enabled.
+```bash {codejar-readonly}
+gcloud services list --enabled
+```
+to verify all four APIs are enabled.
 
 ## Optional: Gemini CLI
 

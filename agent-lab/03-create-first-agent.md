@@ -181,7 +181,9 @@ Check https://adk.dev/callbacks/types-of-callbacks/#after-tool-callback for an e
 
 ```python {codejar}
 from google.adk.agents.llm_agent import Agent
-from google.adk.tools import ToolContext, FunctionTool
+from google.adk.tools import BaseTool, ToolContext, FunctionTool
+
+from typing import Any, Dict, Optional
 
 
 def get_current_time(timezone_name: str):
