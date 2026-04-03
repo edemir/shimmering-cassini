@@ -52,7 +52,7 @@ mcp_tools = MCPToolset(
 def get_id_token():
     """Get an ID token to authenticate with the MCP server."""
     target_url = os.getenv("MCP_SERVER_URL")
-    audience = target_url.split('/mcp/')[0]
+    audience = target_url.split('/mcp')[0]
     request = google.auth.transport.requests.Request()
     id_token = google.oauth2.id_token.fetch_id_token(request, audience)
     return id_token

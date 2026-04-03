@@ -17,11 +17,9 @@ Replace the contents of `agent.py` with the following:
 
 ```python {codejar-readonly}
 from google.adk.agents.llm_agent import Agent
-from google.adk.tools import google_search
 from google.adk.tools.data_agent.config import DataAgentToolConfig
 from google.adk.tools.data_agent.credentials import DataAgentCredentialsConfig
 from google.adk.tools.data_agent.data_agent_toolset import DataAgentToolset
-from google.genai import types
 import google.auth
 from dotenv import load_dotenv
 
@@ -41,6 +39,7 @@ credentials_config = DataAgentCredentialsConfig(
     credentials=application_default_credentials
 )
 
+# Debug: verify credentials loaded correctly
 print(">>>")
 print(application_default_credentials.token_state)
 print(credentials_config)
@@ -61,8 +60,10 @@ root_agent = Agent(
     model='gemini-3-flash-preview',
     name='root_agent',
     description='A helpful assistant for user questions.',
-    instruction="""You are a helpful assistant that uses Data Agents
-        to answer user questions about their data using the agent named "My The Look Ecommerce".
+    instruction="""
+    You are a helpful assistant that uses Data Agents.
+    * To answer user questions about their data using the agent named "My The Look Ecommerce".
+    * Use the project ID `{{PROJECT_ID}}` for data operations.
     """,
     tools=[da_toolset]
 )

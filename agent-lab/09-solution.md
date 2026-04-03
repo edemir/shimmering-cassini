@@ -1,10 +1,10 @@
 # ✅ 09 - Solution
 
-Here are the correct files for Step 09 — integrating the MCP server with your agent.
+Here are the correct files for Step 09 — creating and deploying the MCP server.
 
 ## .env
 
-Replace the project IDs and URLs with your values:
+Update your `.env` to include the MCP server URL:
 
 ```ini {codejar-readonly}
 GOOGLE_CLOUD_LOCATION=global
@@ -16,6 +16,8 @@ MCP_SERVER_URL=https://hton-mcp-server-XXXXXXXXXXXXX.europe-west1.run.app/mcp
 
 ## agent.py
 
+Replace the contents of `agent.py` with the following:
+
 ```python {codejar-readonly}
 import os
 import google.auth
@@ -23,12 +25,10 @@ import google.auth.transport.requests
 import google.oauth2.id_token
 from dotenv import load_dotenv
 from google.adk.agents.llm_agent import Agent
-from google.adk.tools import google_search
 from google.adk.tools.data_agent.config import DataAgentToolConfig
 from google.adk.tools.data_agent.credentials import DataAgentCredentialsConfig
 from google.adk.tools.data_agent.data_agent_toolset import DataAgentToolset
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StreamableHTTPConnectionParams
-from google.genai import types
 
 load_dotenv()
 
@@ -46,6 +46,7 @@ credentials_config = DataAgentCredentialsConfig(
     credentials=application_default_credentials
 )
 
+# Debug: verify credentials loaded correctly
 print(">>>")
 print(application_default_credentials.token_state)
 print(credentials_config)
@@ -65,7 +66,7 @@ da_toolset = DataAgentToolset(
 def get_id_token():
     """Get an ID token to authenticate with the MCP server."""
     target_url = os.getenv("MCP_SERVER_URL")
-    audience = target_url.split('/mcp/')[0]
+    audience = target_url.split('/mcp')[0]
     request = google.auth.transport.requests.Request()
     id_token = google.oauth2.id_token.fetch_id_token(request, audience)
     return id_token
@@ -86,8 +87,9 @@ root_agent = Agent(
     name='root_agent',
     description='A helpful assistant for user questions.',
     instruction="""
-    You are a helpful assistant that uses Data Agents
-        to answer user questions about their data using the agent named "My The Look Ecommerce"
+    You are a helpful assistant that uses Data Agents.
+    * To answer user questions about their data using the agent named "My The Look Ecommerce".
+    * Use the project ID `{{PROJECT_ID}}` for data operations.
     """,
     tools=[da_toolset, mcp_tools]
 )
