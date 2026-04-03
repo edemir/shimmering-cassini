@@ -23,10 +23,14 @@ Add the following details:
 | **Description** | A short description |
 | **Agent ID** | Your agent's resource name |
 
-Copy your agent `Resource Name` from the Agent Engine console.  It should look like this: 
-`projects/0000000/locations/europe-west1/reasoningEngines/000000`.
+Run the following command to get your Agent ID.
+```bash {codejar}
+curl -s -X GET      -H "Authorization: Bearer $(gcloud auth print-access-token)"      "https://europe-west1-aiplatform.googleapis.com/v1/projects/{{PROJECT_ID}}/locations/europe-west1/reasoningEngines" | jq -r '.reasoningEngines[] | select(.displayName == "My First Agent") | .name'
+```
 
-Paste it into the Agent ID field.
+It should be in this format: `projects/0000000/locations/europe-west1/reasoningEngines/000000`.
+
+Paste it into the Agent ID field in the Gemini Enterprise form.
 
 > ✅ **Checkpoint:** You should now be able to see the traces on the **Vertex Agent Engine**.
 

@@ -65,12 +65,6 @@ gcloud services enable \
     aiplatform.googleapis.com
 ```
 
-> ✅ **Checkpoint:** Run
-```bash {codejar-readonly}
-gcloud services list --enabled
-```
-to verify all four APIs are enabled.
-
 ## Optional: Gemini CLI
 
 If you'd like to experiment with the Gemini CLI during the lab, check out the setup guide:
