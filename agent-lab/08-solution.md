@@ -1,6 +1,6 @@
 # ✅ 08 - Solution
 
-Here are the correct files for Step 07.
+Here are the correct files for Step 08.
 
 ## .env
 
