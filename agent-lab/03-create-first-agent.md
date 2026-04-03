@@ -113,6 +113,8 @@ uv run adk web --port 8080 --reload_agents --allow_origins 'regex:https://.*\.cl
 Try changing the agent's instruction to something fun:
 
 ```python {codejar}
+from google.adk.agents.llm_agent import Agent
+
 root_agent = Agent(
     model='gemini-3-flash-preview',
     name='root_agent',
