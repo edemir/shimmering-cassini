@@ -164,7 +164,9 @@ root_agent = Agent(
     name='root_agent',
     description='A helpful assistant for user questions.',
     instruction="""
-    Answer user questions to the best of your knowledge and with your available tools.
+        Answer user questions to the best of your knowledge and with your available tools.
+
+    * If a user request is underspecified ask for clarification before proceeding.
     """,
     tools = [get_current_time]
 )
@@ -193,12 +195,9 @@ Trying asking for time in different cities, and you will see that the agent will
 
 ```python {codejar}
 from google.adk.agents.llm_agent import Agent
-from google.adk.tools import BaseTool, ToolContext, FunctionTool
+from google.adk.tools import ToolContext
 
-from typing import Any, Dict, Optional
-
-
-def get_current_time(timezone_name: str):
+def get_current_time(timezone_name):
     """Retrieves the current local time for a specified timezone.
 
     Args:
@@ -211,17 +210,13 @@ def get_current_time(timezone_name: str):
     from zoneinfo import ZoneInfo
     return datetime.datetime.now(ZoneInfo(timezone_name)).strftime("%Y-%m-%d %H:%M:%S")
 
-def simple_after_tool_modifier(
-    tool: BaseTool, args: Dict[str, Any], tool_context: ToolContext, tool_response: Dict
-) -> Optional[Dict]:
-    agent_name = tool_context.agent_name
-    tool_name = tool.name
-    print(f"[Callback] After tool call for tool '{tool_name}' in agent '{agent_name}'")
-    print(f"[Callback] Args used: {args}")
-    print(f"[Callback] Original tool_response: {tool_response}")
-    if tool_name == 'get_current_time':
-        tool_context.state["users_last_timezone"] = args["timezone_name"]
-    
+def set_default_timezone(timezone_name, tool_context: ToolContext):
+    """Set user's default timezone.
+
+    Args:
+        timezone_name (str, optional): The IANA timezone database name.
+    """
+    tool_context.state["default_time_zone"] = timezone_name
 
 root_agent = Agent(
     model='gemini-3-flash-preview',
@@ -230,10 +225,12 @@ root_agent = Agent(
     instruction="""
     Answer user questions to the best of your knowledge and with your available tools.
 
-    When set use the last time zone user used: <LastTimeZone>{{users_last_timezone?}}</LastTimeZone>
+    * When set use the default time zone: <DefaultTimeZone>{{default_time_zone?}}</DefaultTimeZone>. 
+    ** If not set ask for it and save it and tell the user that they can change it later.
+    
+    * If a user request is ambiguous, underspecified ask for clarification before proceeding.
     """,
-    tools = [get_current_time],
-    after_tool_callback=simple_after_tool_modifier
+    tools = [set_default_timezone, get_current_time]
 )
 ```
 

@@ -36,6 +36,8 @@ cloudshell edit ~/mcp-on-cloudrun/Dockerfile
 ## Create a service account and deploy
 
 ```bash {codejar}
+gcloud config set project {{PROJECT_ID}}
+
 gcloud iam service-accounts create mcp-server-sa \
     --display-name="MCP Server Service Account"
 

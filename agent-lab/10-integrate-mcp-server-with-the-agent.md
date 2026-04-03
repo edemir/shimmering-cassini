@@ -18,7 +18,11 @@ Use **Pattern 2: Remote MCP Servers (Streamable HTTP)** from the ADK documentati
 
 🔗 [MCP Tools — Pattern 2: Remote MCP Servers](https://google.github.io/adk-docs/tools-custom/mcp-tools/#pattern-2-remote-mcp-servers-streamable-http)
 
+
+
 ## Update your agent
+
+If you get stuck in the following steps see the [Solution](agent-lab/10-solution.md) page for the complete `.env` and `agent.py` files.
 
 1. Install the MCP dependency:
 
@@ -61,7 +65,12 @@ def get_id_token():
 4. Add the `MCPToolset` to your agent's `tools` list.
 
 
-See the [10 - Solution](agent-lab/10-solution.md) page for the complete `.env` and `agent.py` files.
+**Restart the web interface** — press `Ctrl-C` and relaunch:
+
+```bash {codejar}
+cd ~/agent_hton
+uv run adk web --port 8080 --reload_agents --allow_origins 'regex:https://.*\.cloudshell\.dev'
+```
 
 ---
 

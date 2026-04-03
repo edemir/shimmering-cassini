@@ -5,6 +5,7 @@ Common issues and how to resolve them.
 ## Authentication Issues
 
 **Issues with authentication?** (e.g., "email missing from service" errors)
+"google.auth.exceptions.RefreshError: Unexpected response from metadata server: service account info is missing 'email' field."
 
 Run the following commands to re-authenticate:
 

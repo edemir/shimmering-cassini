@@ -4,14 +4,16 @@ Here are the correct files for Step 10 — integrating the MCP server with your 
 
 ## .env
 
-Update your `.env` to include the MCP server URL:
+Update your `.env` to include the MCP server URL.
+
+Replace `<project-number>` with your actual project number.
 
 ```ini {codejar-readonly}
 GOOGLE_CLOUD_LOCATION=global
 GOOGLE_GENAI_USE_VERTEXAI=TRUE
 GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY=TRUE
 OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=TRUE
-MCP_SERVER_URL=https://hton-mcp-server-{{PROJECT_NUMBER}}.europe-west1.run.app/mcp
+MCP_SERVER_URL=https://hton-mcp-server-<project-number>.europe-west1.run.app/mcp
 ```
 
 ## agent.py

@@ -8,7 +8,7 @@ In this step, you'll connect the Data Agent to your custom agent as a tool and g
 
 Use the attached code in [08 - Solution](agent-lab/08-solution.md) to connect the data agent to your custom agent as a tool.
 
-Run your agent in Cloud Shell if it's not running:
+After copying the code, run your agent in Cloud Shell if it's not running:
 
 ```bash {codejar}
 cd ~/agent_hton
@@ -75,18 +75,18 @@ gcloud projects add-iam-policy-binding "$PROJECT_ID" \
 Re-deploy your agent to the Agent Engine. Go into the `agent_hton` folder in Cloud Shell:
 
 ```bash {codejar}
-LOCATION_ID=europe-west1
-PROJECT_ID=$(gcloud config get-value project)
+cd ~/agent_hton
+
+AGENT_RESOURCE_ID=$(curl -s -X GET      -H "Authorization: Bearer $(gcloud auth print-access-token)"      "https://europe-west1-aiplatform.googleapis.com/v1/projects/{{PROJECT_ID}}/locations/europe-west1/reasoningEngines" | jq -r '.reasoningEngines[] | select(.displayName == "My First Agent") | .name')
 
 uv run adk deploy agent_engine \
-    --project=$PROJECT_ID \
-    --region=$LOCATION_ID \
+    --project={{PROJECT_ID}} \
+    --region=europe-west1 \
     --display_name="My First Agent" \
-    first_agent \
     --otel_to_cloud \
     --trace_to_cloud \
-    --agent_engine_id \
-    {{AGENT_RESOURCE_ID}}
+    --agent_engine_id $AGENT_RESOURCE_ID \
+    first_agent
 ```
 
 <div class="tip-box info">
