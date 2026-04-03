@@ -4,6 +4,10 @@
 
 In this step, you'll set up your project structure and create your first AI agent using the Google Agent Development Kit (ADK).
 
+We'll run our agent in a local environment for testinging purposes in the Cloud Shell VM. 
+
+In the next step, we'll deploy it to Vertex AI Agent Engine for a persistent deployment.
+
 ## Enable Cloud Assist
 
 Enable Cloud Assist at the [Gemini Admin Products page](https://console.cloud.google.com/gemini-admin/products).

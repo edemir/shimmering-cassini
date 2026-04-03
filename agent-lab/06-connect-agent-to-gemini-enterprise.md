@@ -29,6 +29,10 @@ Your agent ID looks like this:
 projects/0000000/locations/europe-west1/reasoningEngines/000000
 ```
 
+```text {codejar-readonly}
+{{AGENT_RESOURCE_ID}}
+```
+
 > ✅ **Checkpoint:** You should now be able to see the traces on the **Vertex Agent Engine**.
 
 ---

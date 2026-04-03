@@ -1,7 +1,4 @@
 # ☁️ 04 - Deploy to Vertex AI Agent Engine
-
-
-
 In this step, you'll prepare and deploy your agent to the **Vertex AI Agent Engine**.
 
 ## Set environment variables
@@ -65,7 +62,8 @@ uv run adk deploy agent_engine \
 <div class="tip-box info">
   <span class="icon">⏳</span>
   <div>
-    This will take a couple of minutes.
+    This will take up to 10 minutes.  
+    ☕ Grab a coffee or tea, or start one of the sessions that can be done in parallel.
   </div>
 </div>
 
@@ -81,8 +79,7 @@ uv run adk deploy agent_engine \
 Explore the **dashboard**, **traces**, **sessions**, and **playground**.
 
 ## Redeploy
-
-You can re-deploy your agent after making changes to it.
+If you see any errors you can re-deploy your agent after making changes to it.
 Replace the agent engine ID with your agent's ID (from the previous deploy output):
 
 ```bash {codejar}
