@@ -53,7 +53,8 @@ gcloud run deploy hton-mcp-server \
     --service-account=mcp-server-sa@{{PROJECT_ID}}.iam.gserviceaccount.com \
     --no-allow-unauthenticated \
     --region=europe-west1 \
-    --source=.
+    --source=. \
+    --min 1
 ```
 
 ## Grant permissions
@@ -86,7 +87,7 @@ gemini mcp add \
     https://hton-mcp-server-${PROJECT_NUMBER}.europe-west1.run.app/mcp
 ```
 
-> ✅ **Checkpoint:** Start Gemini CLI in cloud shell with the `gemini` commandand ask it to show the product inventory.
+> ✅ **Checkpoint:** Start Gemini CLI in cloud shell with the `gemini` commandand ask it to "show the product inventory for `9EF7F0360A59458D3FC8146AC7DF4C71`".
 
 ---
 

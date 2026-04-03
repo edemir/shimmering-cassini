@@ -75,7 +75,7 @@ def get_id_token():
 
 mcp_server_url = os.getenv("MCP_SERVER_URL")
 
-mcp_tools = MCPToolset(
+product_inventory_tools = MCPToolset(
     connection_params=StreamableHTTPConnectionParams(
         url=mcp_server_url,
         headers={
@@ -90,10 +90,14 @@ root_agent = Agent(
     description='A helpful assistant for user questions.',
     instruction="""
     You are a helpful assistant that uses Data Agents.
-    * To answer user questions about their data using the agent named "My The Look Ecommerce".
-    * Use the project ID `{{PROJECT_ID}}` for data operations.
+    * To answer user questions about the sales data use the agent named "My The Look Ecommerce".
+    * Use the project ID `{{PROJECT_ID}}` for data agent operations.
+    * Use `product_inventory_tools` to query about the inventory levels.
+    
+    Optimize your plan to call the `da_toolset` as few times as possible.
+
     """,
-    tools=[da_toolset, mcp_tools]
+    tools=[da_toolset, product_inventory_tools]
 )
 ```
 

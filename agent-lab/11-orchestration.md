@@ -6,7 +6,9 @@ You can now use **LLM** or **ADK orchestration** to build complex use cases.
 
 ## Try it out
 
-For instance, you may want to ask about "**What are the best-selling items that are out of stock?**"
+For instance, you may want to ask about "**check the top 10 best selling items stock numbers**". 
+
+Ask a follow up: **plan restocking numbers for these items based on last 4 weeks of sales.**
 
 This requires the agent to coordinate between the Data Agent (BigQuery) and the MCP Server (inventory).
 
