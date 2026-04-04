@@ -73,8 +73,11 @@ uv run adk web --port 8080 --reload_agents --allow_origins 'regex:https://.*\.cl
 
 ## Fix the model and configuration
 
-1. **Fix the model ID** — Open `agent.py` and change the model to **Gemini 3 Flash**:
-   - 🔗 [Gemini 3 Flash docs](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-flash)
+1. **Fix the model ID** — Open `agent.py` and change the model to **[Gemini 3 Flash](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-flash)** (`gemini-3-flash-preview`).
+
+```bash {codejar}
+cloudshell edit ~/agent_hton/agent.py
+```
 
 <details>
 <summary>💡 Show solution</summary>
@@ -94,7 +97,12 @@ root_agent = Agent(
 
 
 2. **Enable Vertex AI mode** — Open the `.env` file and add the following:
-   - 🔗 [ADK Quickstart — Vertex AI](https://google.github.io/adk-docs/get-started/quickstart/#gemini---google-cloud-vertex-ai)
+   
+```bash {codejar}
+cloudshell edit ~/agent_hton/.env
+```
+
+
 
 Your `.env` file should look like this:
 
@@ -102,6 +110,8 @@ Your `.env` file should look like this:
 GOOGLE_CLOUD_LOCATION=global
 GOOGLE_GENAI_USE_VERTEXAI=TRUE
 ```
+
+Read more about different methods of connecting models in 🔗 [ADK Models](https://adk.dev/agents/models/)
 
 3. **Restart the web interface** — press `Ctrl-C` and relaunch:
 

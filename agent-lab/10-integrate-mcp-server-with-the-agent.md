@@ -1,13 +1,14 @@
 # 🔗 10 - Integrate MCP Server with the Agent
 
+Model Context Protocol (MCP) is an open standard designed to standardize how Large Language Models (LLMs) like Gemini and Claude communicate with external applications, data sources, and tools.
 
-
-In this step, you'll integrate the MCP server you deployed on Cloud Run with your ADK agent.
+In this step, you'll integrate an MCP server you deployed on Cloud Run with your ADK agent.  Your agent will act as an MCP client, leveraging tools provided by external MCP servers.
 
 <div class="tip-box info">
   <span class="icon">💡</span>
   <div>
-    This step builds on the agent from Step 08 and the MCP server from Step 09. Make sure both are working before proceeding.
+    This step builds on the data tools from Step 08 and the MCP server from Step 09. 
+    Make sure both are working before proceeding.
   </div>
 </div>
 

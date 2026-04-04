@@ -1,6 +1,9 @@
 # 🔌 08 - Connect to a Data Agent Tool
 
 
+ADK comes with [pre-built tools](https://adk.dev/integrations) and integrations that you can use with your agents. 
+
+Data Agents is a pre-built agent that can be used to query and analyze data in BigQuery. 
 
 In this step, you'll connect the Data Agent to your custom agent as a tool and grant the necessary IAM permissions.
 
