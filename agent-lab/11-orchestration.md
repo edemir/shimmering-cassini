@@ -14,10 +14,10 @@ This requires the agent to coordinate between the Data Agent (BigQuery) and the 
 
 Use the instructions on guiding the agent to use the appropriate tools to answer the question, and orchestrate between them to provide a comprehensive answer.
 
-## Learn more
+## Challenge
 
 Explore the ADK documentation on multi-agent orchestration for strict control over the agent's behavior:
 
 🔗 [Hierarchical Task Decomposition](https://google.github.io/adk-docs/agents/multi-agents/#hierarchical-task-decomposition)
 
-Feel free to experiment with the agent and see what you can build!
+Experiment with these frameworks and show us what you can build!

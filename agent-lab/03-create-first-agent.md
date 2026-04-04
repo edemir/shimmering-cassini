@@ -47,14 +47,16 @@ uv add google-adk
 
 We'll use `uv run` — feel free to [create a virtual environment](https://docs.astral.sh/uv/pip/environments/) and switch into it to use `adk` directly.
 
-Create the agent's skeleton: 
+Create the agent's skeleton. 
+
+Note: Select **other models** (option 2).  We'll change the model later.
 
 ```bash {codejar}
 cd ~/agent_hton
 uv run adk create first_agent --region global
 ```
 
-Select **other models** (option 2).  We'll change the model later.
+
 
 ## Run the agent in a web interface
 
@@ -192,13 +194,10 @@ Sample query:
 > "sidney ile istanbul arasi kac saat?"
 
 ### State
-Now let's add state to our agent, you can save anything you like in the state and use it later. For example, you can save the user's last timezone and use it later.
+Now let's add state to our agent, you can save anything you like in the state and use it later. For example, you can save the user's preferred timezone.
 
-Check https://adk.dev/callbacks/types-of-callbacks/#after-tool-callback for an example.
+After implementing this section, check the "State" section in the agent web UI to see the state saved.
 
-Check the "State" section in the agent web UI to see the state saved.
-
-Trying asking for time in different cities, and you will see that the agent will remember the user's last timezone and use it to answer the question when you don't specify a location.
 
 <details>
 <summary>💡 Show solution</summary>
@@ -236,9 +235,9 @@ root_agent = Agent(
     Answer user questions to the best of your knowledge and with your available tools.
 
     * When set use the default time zone: <DefaultTimeZone>{{default_time_zone?}}</DefaultTimeZone>. 
-    ** If not set ask for it and save it and tell the user that they can change it later.
+    ** If not set, ask for it and save it and tell the user that they can change it later.
     
-    * If a user request is ambiguous, underspecified ask for clarification before proceeding.
+    * If a user request is underspecified ask for clarification before proceeding.
     """,
     tools = [set_default_timezone, get_current_time]
 )

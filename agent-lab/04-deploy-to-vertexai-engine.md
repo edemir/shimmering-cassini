@@ -80,7 +80,8 @@ Explore the **dashboard**, **traces**, **sessions**, and **playground**.
 
 ## Redeploy
 If you see any errors you can re-deploy your agent after making changes to it.
-Replace the agent engine ID with your agent's ID (from the previous deploy output):
+
+Replace the agent engine ID with your agent's ID (from the previous deploy output - or you can use the command below to get it):
 
 ```bash {codejar}
 cd ~/agent_hton

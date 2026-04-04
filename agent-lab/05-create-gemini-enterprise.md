@@ -1,10 +1,10 @@
-# 💎 05 - Create Gemini Enterprise
+# 💎 05 - Set up Gemini Enterprise
 
 
 
 In this step, you'll set up a **Gemini Enterprise** instance and configure it for your project.
 
-## Create the Gemini Enterprise instance
+## Create a Gemini Enterprise instance
 
 1. In the Cloud Console, open a new tab and go to the [Gemini Enterprise Products page](https://console.cloud.google.com/gemini-enterprise/products).
 
@@ -27,6 +27,13 @@ In this step, you'll set up a **Gemini Enterprise** instance and configure it fo
 ## Share your instance
 
 In the **Gemini Enterprise homepage**, find your instance URL and **share it with your team**.
+
+<div class="tip-box info">
+  <span class="icon">💡</span>
+  <div>
+    If you don't see the URL, you may have skipped the <strong>Identity</strong> setup.  Set up identity to <strong>Use Google identity</strong> and try again.
+  </div>
+</div>
 
 ---
 
