@@ -78,7 +78,7 @@ uv run adk web --port 8080 --reload_agents --allow_origins 'regex:https://.*\.cl
 1. **Fix the model ID** — Open `agent.py` and change the model to **[Gemini 3 Flash](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-flash)** (`gemini-3-flash-preview`).
 
 ```bash {codejar}
-cloudshell edit ~/agent_hton/agent.py
+cloudshell edit ~/agent_hton/first_agent/agent.py
 ```
 
 <details>
@@ -101,7 +101,7 @@ root_agent = Agent(
 2. **Enable Vertex AI mode** — Open the `.env` file and add the following:
    
 ```bash {codejar}
-cloudshell edit ~/agent_hton/.env
+cloudshell edit ~/agent_hton/first_agent/.env
 ```
 
 

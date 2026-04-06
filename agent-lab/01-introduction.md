@@ -22,7 +22,12 @@ Here is a graph showing the dependencies between the lab steps.
 
 Each member of the team should complete **Before you begin** individually.
 
-Have the team members working on **Create First Agent**, **Create Gemini Enterprise**, **Create Data Agent**, and **Create MCP Server** in parallel.
+You should start working on the following tasks in parallel:
+
+- **Create First Agent**
+- **Set up Gemini Enterprise**
+- **Create Data Agent**
+- **Create MCP Server**
 
 ```mermaid
 flowchart LR
