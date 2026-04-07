@@ -223,7 +223,7 @@ def set_default_timezone(timezone_name, tool_context: ToolContext):
     """Set user's default timezone.
 
     Args:
-        timezone_name (str, optional): The IANA timezone database name.
+        timezone_name (str): The IANA timezone database name.
     """
     tool_context.state["default_time_zone"] = timezone_name
 

@@ -12,7 +12,17 @@
   // ── Variable Definitions ──────────────────────────────────────────
   const EDITABLE_VARS = [
     { key: 'PROJECT_ID', label: 'Project ID', type: 'text', placeholder: 'my-gcp-project' },
-    { key: 'USER_NAME', label: 'User Name', type: 'text', placeholder: 'student-01-e3070b44be2c@qwiklabs.net' },
+    {
+      key: 'USER_NAME', label: 'User Name', type: 'text',
+      placeholder: 'student-01-e3070b44be2c@qwiklabs.net',
+      validate: (val) => {
+        if (!val) return null; // empty is handled by the warning banner
+        if (!val.trim().endsWith('@qwiklabs.net')) {
+          return 'Username must end with @qwiklabs.net';
+        }
+        return null;
+      }
+    },
   ];
 
   const COMPUTED_VARS = [
@@ -55,6 +65,14 @@
     document.dispatchEvent(new CustomEvent('variables-changed', { detail: getAll() }));
     updateComputedFields();
     updateAllVarSpans();
+    updateWarningVisibility();
+  }
+
+  function updateWarningVisibility() {
+    const warning = document.getElementById('var-panel-warning');
+    if (!warning) return;
+    const allFilled = EDITABLE_VARS.every(v => variables[v.key] && variables[v.key].trim() !== '');
+    warning.style.display = allFilled ? 'none' : 'flex';
   }
 
   // ── Build the top panel ───────────────────────────────────────────
@@ -66,6 +84,15 @@
     const panel = document.createElement('div');
     panel.id = 'var-panel';
 
+    // Warning banner
+    const warning = document.createElement('div');
+    warning.id = 'var-panel-warning';
+    warning.innerHTML = '<span class="var-warning-icon">⚠️</span>' +
+      '<span class="var-warning-text">' +
+      '<strong>Action Required:</strong> Please enter your <strong>Project ID</strong> and <strong>User Name</strong> below. ' +
+      'These values are used throughout the lab instructions and code blocks.' +
+      '</span>';
+    panel.appendChild(warning);
 
     // Fields row
     const fields = document.createElement('div');
@@ -89,16 +116,42 @@
     label.setAttribute('for', `var-${v.key}`);
     field.appendChild(label);
 
+    const inputWrap = document.createElement('div');
+    inputWrap.className = 'var-input-wrap';
+
     const inp = document.createElement('input');
     inp.type = 'text';
     inp.id = `var-${v.key}`;
     inp.placeholder = v.placeholder || '';
     inp.value = variables[v.key] || '';
+
+    const errorMsg = document.createElement('div');
+    errorMsg.className = 'var-field-error';
+    errorMsg.id = `var-error-${v.key}`;
+
     inp.addEventListener('input', () => {
       variables[v.key] = inp.value;
       fireChange();
+      // Run validation if defined
+      if (v.validate) {
+        const err = v.validate(inp.value);
+        errorMsg.textContent = err || '';
+        inp.classList.toggle('invalid', !!err);
+        errorMsg.classList.toggle('visible', !!err);
+      }
     });
-    field.appendChild(inp);
+
+    // Validate on load if there's already a value
+    if (v.validate && inp.value) {
+      const err = v.validate(inp.value);
+      errorMsg.textContent = err || '';
+      inp.classList.toggle('invalid', !!err);
+      errorMsg.classList.toggle('visible', !!err);
+    }
+
+    inputWrap.appendChild(inp);
+    inputWrap.appendChild(errorMsg);
+    field.appendChild(inputWrap);
 
     return field;
   }
