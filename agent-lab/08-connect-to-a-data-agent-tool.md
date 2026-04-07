@@ -41,8 +41,6 @@ We'll use the Agent Engine's service account to provide access to the dataset. A
 
 Copy the service account ID from the Agent Engine console and set it below:
 
-Todo(demir): Minimize the number of roles.
-
 ```bash {codejar}
 PROJECT_ID=$(gcloud config get-value project)
 PROJECT_NUMBER=$(gcloud projects describe "$PROJECT_ID" --format="value(projectNumber)")
