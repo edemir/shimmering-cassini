@@ -24,10 +24,10 @@ Each member of the team should complete **Before you begin** individually.
 
 You should start working on the following tasks in parallel:
 
-- **Create First Agent**
-- **Set up Gemini Enterprise**
-- **Create Data Agent**
-- **Create MCP Server**
+- **Create First Agent** All participants can do this, you'll not interfere with each other.
+- **Set up Gemini Enterprise** One participant should do this.
+- **Create Data Agent** One participant should do this.
+- **Create MCP Server** One participant should do this.
 
 ```mermaid
 flowchart LR
