@@ -53,7 +53,7 @@ uv run adk deploy agent_engine \
     --region=europe-west1 \
     --otel_to_cloud \
     --trace_to_cloud \
-    --display_name="{{USER_NAME_SHORT}}'s Agent" \
+    --display_name="{{USER_NAME_SHORT}} Agent" \
     first_agent
 ```
 
@@ -86,12 +86,20 @@ Replace the agent engine ID with your agent's ID (from the previous deploy outpu
 ```bash {codejar}
 cd ~/agent_hton
 
-AGENT_RESOURCE_ID=$(curl -s -X GET      -H "Authorization: Bearer $(gcloud auth print-access-token)"      "https://europe-west1-aiplatform.googleapis.com/v1/projects/{{PROJECT_ID}}/locations/europe-west1/reasoningEngines" | jq -r '.reasoningEngines[] | select(.displayName == "{{USER_NAME_SHORT}}'s Agent") | .name')
+AGENT_RESOURCE_ID=$(curl -s -X GET      -H "Authorization: Bearer $(gcloud auth print-access-token)"      "https://europe-west1-aiplatform.googleapis.com/v1/projects/{{PROJECT_ID}}/locations/europe-west1/reasoningEngines" | jq -r '.reasoningEngines[] | select(.displayName == "{{USER_NAME_SHORT}} Agent") | .name')
+
+if [[ ! "$AGENT_RESOURCE_ID" =~ ^projects/[0-9]+/locations/europe-west1/reasoningEngines/[0-9]+$ ]]; then
+  echo "❌ Error: AGENT_RESOURCE_ID has an unexpected value: '$AGENT_RESOURCE_ID'"
+  echo "   Expected format: projects/<number>/locations/europe-west1/reasoningEngines/<number>"
+  echo "   Make sure your agent was deployed in step 04 and the display name matches."
+else
+  echo "✅ AGENT_RESOURCE_ID=$AGENT_RESOURCE_ID"
+fi
 
 uv run adk deploy agent_engine \
     --project={{PROJECT_ID}} \
     --region=europe-west1 \
-    --display_name="{{USER_NAME_SHORT}}'s Agent" \
+    --display_name="{{USER_NAME_SHORT}} Agent" \
     --otel_to_cloud \
     --trace_to_cloud \
     --agent_engine_id $AGENT_RESOURCE_ID \
