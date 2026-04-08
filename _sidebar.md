@@ -5,7 +5,7 @@
   - [03 Create First Agent](agent-lab/03-create-first-agent.md)
   - [04 Deploy to VertexAI Engine](agent-lab/04-deploy-to-vertexai-engine.md)
   - [05 Set up Gemini Enterprise](agent-lab/05-create-gemini-enterprise.md)
-  - [06 Agent UI](agent-lab/06-connect-agent-to-gemini-enterprise.md)
+  - [06 Connect Agent to Gemini Enterprise](agent-lab/06-connect-agent-to-gemini-enterprise.md)
   - [07 Create Data Agent](agent-lab/07-create-a-data-agent.md)
   - [08 Built-in Tools - Data Agent](agent-lab/08-connect-to-a-data-agent-tool.md)
   -- [Solution](agent-lab/08-solution.md)

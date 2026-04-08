@@ -101,8 +101,7 @@ uv run adk deploy agent_engine \
 <div class="tip-box info">
   <span class="icon">💡</span>
   <div>
-    Replace the <code>agent_engine_id</code> with your agent's <strong>Resource name</strong> from the Agent Engine UI.
-  </div>
+    <code>AGENT_RESOURCE_ID</code>'s value will determine the agent to be updated. </div>
 </div>
 
 > ✅ **Checkpoint:** Make sure the agent works in the **playground**, then try it in **Gemini Enterprise**.

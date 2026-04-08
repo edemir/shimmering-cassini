@@ -19,6 +19,21 @@ Use **Pattern 2: Remote MCP Servers (Streamable HTTP)** from the ADK documentati
 
 🔗 [MCP Tools — Pattern 2: Remote MCP Servers](https://google.github.io/adk-docs/tools-custom/mcp-tools/#pattern-2-remote-mcp-servers-streamable-http)
 
+## Grant Cloud Run Invoker permissions
+
+```bash {codejar}
+PROJECT_ID=$(gcloud config get-value project)
+PROJECT_NUMBER=$(gcloud projects describe "$PROJECT_ID" --format="value(projectNumber)")
+SA="serviceAccount:service-${PROJECT_NUMBER}@gcp-sa-aiplatform-re.iam.gserviceaccount.com"
+
+gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+  --member="$SA" \
+  --role="roles/run.invoker"
+
+gcloud projects add-iam-policy-binding {{PROJECT_ID}} \
+    --member=user:$(gcloud config get-value account) \
+    --role='roles/run.invoker'
+```
 
 
 ## Update your agent
@@ -39,7 +54,7 @@ uv export --no-hashes --format requirements-txt > first_agent/requirements.txt
 <summary>💡 Hint</summary>
 
 ```python {codejar-readonly}
-mcp_tools = MCPToolset(
+product_inventory_tools = MCPToolset(
     connection_params=StreamableHTTPConnectionParams(
         url=mcp_server_url,
         headers={

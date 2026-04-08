@@ -1,9 +1,5 @@
 # 🚀 01 - Start Here
 
-## Start the Lab Environment
-This step is **for the table lead only**.
-
-## Table Lead: In this step, you'll set up your lab environment.
 
 1. Your **table lead** starts the lab and shares the credentials and project ID with all participants.
 2. Open an **incognito window** and log into the [Google Cloud Console](https://console.cloud.google.com) using your lab credentials.
@@ -18,14 +14,14 @@ This step is **for the table lead only**.
 
 ## Task Dependencies
 
-Here is a graph showing the dependencies between the lab steps. 
-
 Each member of the team should complete **Before you begin** individually.
 
-You should start working on the following tasks in parallel:
 
 - **Create First Agent** 
   - All participants should do this individually.
+
+A team member should start working on one of the following steps when they are done with the previous step:
+- **Deploy to Vertex Engine** One or more participants can do this.
 - **Set up Gemini Enterprise** One participant should do this.
 - **Create Data Agent** One participant should do this.
 - **Create MCP Server** One participant should do this.
