@@ -25,7 +25,7 @@ Add the following details:
 
 Run the following command to get your Agent ID.
 ```bash {codejar}
-curl -s -X GET      -H "Authorization: Bearer $(gcloud auth print-access-token)"      "https://europe-west1-aiplatform.googleapis.com/v1/projects/{{PROJECT_ID}}/locations/europe-west1/reasoningEngines" | jq -r '.reasoningEngines[] | select(.displayName == "My First Agent") | .name'
+curl -s -X GET      -H "Authorization: Bearer $(gcloud auth print-access-token)"      "https://europe-west1-aiplatform.googleapis.com/v1/projects/{{PROJECT_ID}}/locations/europe-west1/reasoningEngines" | jq -r '.reasoningEngines[] | select(.displayName == "{{USER_NAME_SHORT}}'s Agent") | .name'
 ```
 
 It should be in this format: `projects/0000000/locations/europe-west1/reasoningEngines/000000`.

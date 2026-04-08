@@ -53,7 +53,7 @@ uv run adk deploy agent_engine \
     --region=europe-west1 \
     --otel_to_cloud \
     --trace_to_cloud \
-    --display_name="My First Agent" \
+    --display_name="{{USER_NAME_SHORT}}'s Agent" \
     first_agent
 ```
 
@@ -86,12 +86,12 @@ Replace the agent engine ID with your agent's ID (from the previous deploy outpu
 ```bash {codejar}
 cd ~/agent_hton
 
-AGENT_RESOURCE_ID=$(curl -s -X GET      -H "Authorization: Bearer $(gcloud auth print-access-token)"      "https://europe-west1-aiplatform.googleapis.com/v1/projects/{{PROJECT_ID}}/locations/europe-west1/reasoningEngines" | jq -r '.reasoningEngines[] | select(.displayName == "My First Agent") | .name')
+AGENT_RESOURCE_ID=$(curl -s -X GET      -H "Authorization: Bearer $(gcloud auth print-access-token)"      "https://europe-west1-aiplatform.googleapis.com/v1/projects/{{PROJECT_ID}}/locations/europe-west1/reasoningEngines" | jq -r '.reasoningEngines[] | select(.displayName == "{{USER_NAME_SHORT}}'s Agent") | .name')
 
 uv run adk deploy agent_engine \
     --project={{PROJECT_ID}} \
     --region=europe-west1 \
-    --display_name="My First Agent" \
+    --display_name="{{USER_NAME_SHORT}}'s Agent" \
     --otel_to_cloud \
     --trace_to_cloud \
     --agent_engine_id $AGENT_RESOURCE_ID \
